@@ -2,7 +2,7 @@
 from flask import render_template, Flask, g
 import sqlite3
 
-PATH = "../db/jobs.sqlite"
+PATH = "db/jobs.sqlite"
 app = Flask(__name__)
 
 
@@ -22,6 +22,7 @@ def execute_sql(sql, values=(), commit=False, single=False):
     else:
         results = cursor.fetchone() if single else cursor.fetchall()
     cursor.close()
+    print(results, 'RESULTS')
     return results
 
 
